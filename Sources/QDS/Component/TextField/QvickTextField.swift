@@ -13,6 +13,12 @@ public struct QvickTextField: View {
     @State var isTab: Bool = false
     let isSecure: Bool
     
+    public init(text: Binding<String>, prompt: String, isSecure: Bool) {
+        self._text = text
+        self.prompt = prompt
+        self.isSecure = isSecure
+    }
+    
     public var body: some View {
         RoundedRectangle(cornerRadius: 15)
             .frame(width: 340, height: 60)
