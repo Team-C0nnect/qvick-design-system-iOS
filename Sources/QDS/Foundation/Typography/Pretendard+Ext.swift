@@ -5,7 +5,7 @@ extension QvickFont.Pretendard: QvickFont.CanDefine {
     public static func register() {
         QvickFont.Pretendard.allCases.forEach {
             guard let fontURL = Bundle.module.url(
-                    forResource: "Pretendard-\($0.name)",
+                    forResource: $0.name,
                     withExtension: "ttf"
                 ),
                       let fontDataProvider = CGDataProvider(url: fontURL as CFURL),

@@ -6,12 +6,13 @@ extension QvickFont {
         
         static func register()
     }
+    
+    public protocol Fontable {
+        var font: Font { get }
+    }
 }
 
 
-
-
-@available(iOS 13.0, *)
 extension QvickFont.CanDefine {
     public func font( size: CGFloat ) -> Font {
         return Font.custom(self.name, size: size)

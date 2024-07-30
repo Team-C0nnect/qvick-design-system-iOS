@@ -31,7 +31,7 @@ struct QvickButton: View {
                 .foregroundStyle(background)
                 .overlay {
                     Text(text)
-                        .font(.pretendard(.semibold, size: 17))
+                        .font(.pretendard(.SemiBold, size: 17))
                         .foregroundStyle(.white)
                 }
         }
