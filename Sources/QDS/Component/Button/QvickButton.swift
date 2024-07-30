@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QvickButton: View {
+public struct QvickButton: View {
     let action: (() -> ())?
     let destination: (() -> AnyView)?
     let text: String
@@ -20,7 +20,7 @@ struct QvickButton: View {
         self.destination = destination
     }
     
-    var body: some View {
+    public var body: some View {
         Button {
             if let action = action {
                 action()

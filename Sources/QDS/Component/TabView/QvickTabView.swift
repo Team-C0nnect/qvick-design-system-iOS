@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QvickTabView<Content: View>: View {
+public struct QvickTabView<Content: View>: View {
     @Binding var selection: QvickTabItem
     let content: Content
     
@@ -16,7 +16,7 @@ struct QvickTabView<Content: View>: View {
             self.content = content()
         }
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             content
             
