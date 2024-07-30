@@ -1,12 +1,11 @@
 import SwiftUI
 
 public enum QvickImage: String {
-    case Logo
-    case LogoWithText
-    case LogoSmall
+    case logo
+    case logoWithText
+    case smallLogo
 }
 
-@available(iOS 13.0, *)
 extension QvickImage {
     public var image: Image {
         get {
