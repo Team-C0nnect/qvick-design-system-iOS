@@ -25,7 +25,7 @@ struct QvickTextField: View {
                     
                     TextField(
                         text: $text,
-                        prompt: Text(prompt).font(.pretendard(.Regular, size: 14))
+                        prompt: Text(prompt).font(.pretendard(.regular, size: 14))
                     ) {
                         
                     }
@@ -33,7 +33,7 @@ struct QvickTextField: View {
                         if self.isTab {
                             Text(prompt)
                                 .foregroundStyle(.blue)
-                                .font(.pretendard(.Regular, size: 11))
+                                .font(.pretendard(.regular, size: 11))
                                 .padding(.horizontal, 5)
                                 .background(Color.white)
                                 .offset(x: -120, y: -30)
