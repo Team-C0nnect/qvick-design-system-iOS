@@ -1,39 +1,16 @@
 import SwiftUI
 
 extension Color {
-    public static func colorPrimary( _ type: QvickColor.Semantic.ColorPrimary ) -> Color {
-            type.color
-    }
-    
-    public static func colorLabel( _ type: QvickColor.Semantic.ColorLabel ) -> Color {
-            type.color
-    }
-    
-    public static func backgroundNormal( _ type: QvickColor.Semantic.BackgroundNormal ) -> Color {
-            type.color
-    }
-    
-    public static func backgroundElevated( _ type: QvickColor.Semantic.BackgroundElevated ) -> Color {
-            type.color
-    }
-    
-    public static func line( _ type: QvickColor.Semantic.Line ) -> Color {
-            type.color
-    }
-    
-    public static func status( _ type: QvickColor.Semantic.Status ) -> Color {
-            type.color
-    }
-    
-    public static func common( _ type: QvickColor.Semantic.Common ) -> Color {
-            type.color
-    }
-    
-    public static func componentFill( _ type: QvickColor.Semantic.ComponentFill ) -> Color {
-            type.color
-    }
-    
-    public static func componentMaterial( _ type: QvickColor.Semantic.ComponentMaterial ) -> Color {
-            type.color
+    init(hex: String) {
+        let scanner = Scanner(string: hex)
+        _ = scanner.scanString("#")
+        
+        var rgb: UInt64 = 0
+        scanner.scanHexInt64(&rgb)
+        
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >>  8) & 0xFF) / 255.0
+        let b = Double((rgb >>  0) & 0xFF) / 255.0
+        self.init(red: r, green: g, blue: b)
     }
 }

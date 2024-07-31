@@ -11,14 +11,16 @@ public struct QvickButton: View {
     let action: (() -> ())?
     let destination: (() -> AnyView)?
     let text: String
-    let background: Color
+    @State var disable: Bool
         
-    public init(action: (() -> ())? = nil, destination: (() -> AnyView)? = nil, text: String, background: Color = .blue) {
+    public init(action: (() -> ())? = nil, destination: (() -> AnyView)? = nil, text: String, disable: Bool) {
         self.text = text
-        self.background = background
+        self.disable = disable
         self.action = action
         self.destination = destination
     }
+    
+    
     
     public var body: some View {
         Button {
@@ -28,16 +30,17 @@ public struct QvickButton: View {
         } label: {
             RoundedRectangle(cornerRadius: 14)
                 .frame(width: 345, height: 50)
-                .foregroundStyle(background)
+                .foregroundStyle(disable ? Color.labelLightDisable : .primaryNormal)
                 .overlay {
                     Text(text)
                         .font(.pretendard(.bold, size: 17))
                         .foregroundStyle(.white)
                 }
         }
+        .disabled(disable)
     }
 }
 
 #Preview {
-    QvickButton(text: "다음")
+    QvickButton(text: "다음", disable: false)
 }

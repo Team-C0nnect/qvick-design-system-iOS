@@ -24,11 +24,11 @@ public struct QvickTextField: View {
             .frame(width: 340, height: 60)
             .foregroundStyle(.clear)
             .overlay {
-                RoundedRectangle(cornerRadius: 15).stroke(isTab ? .blue : .gray)
+                RoundedRectangle(cornerRadius: 15).stroke(isTab ? Color.primaryNormal : .lineAlternative)
                 
                 HStack(spacing: 20) {
                     Image(systemName: "person.fill")
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(Color.lineAlternative)
                     
                     if isSecure {
                         SecureField(

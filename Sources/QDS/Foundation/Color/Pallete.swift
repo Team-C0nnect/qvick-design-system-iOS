@@ -1,0 +1,115 @@
+import SwiftUI
+
+public struct Pallete {
+    
+    //Common
+    static let Common0: String = "#000000"
+    static let Common100: String = "#FFFFFF"
+    
+    //Neutral
+    static let Neutral5: String = "#0A0A0A"
+    static let Neutral10: String  = "#141414"
+    static let Neutral15: String  = "#1F1F1F"
+    static let Neutral20: String = "#292929"
+    static let Neutral25: String = "#333333"
+    static let Neutral30: String = "#474747"
+    static let Neutral40: String = "#5C5C5C"
+    static let Neutral50: String = "#707070"
+    static let Neutral60: String = "#858585"
+    static let Neutral70: String = "#999999"
+    static let Neutral80: String = "#ADADAD"
+    static let Neutral90: String = "#C4C4C4"
+    static let Neutral95: String = "#DCDCDC"
+    static let Neutral99: String = "#F7F7F7"
+    
+    //Blue
+    static let Blue10: String = "#001B33"
+    static let Blue20: String = "#00277A"
+    static let Blue30: String = "#003793"
+    static let Blue40: String = "#014FB7"
+    static let Blue50: String = "#0389FF"
+    static let Blue60: String = "#339FFF"
+    static let Blue70: String = "#66B7FF"
+    static let Blue80: String = "#99CFFF"
+    static let Blue90: String = "#CCE7FF"
+    static let Blue95: String = "#E5F3FF"
+    static let Blue99: String = "#FAFDFF"
+    
+    //Indigo
+    static let Indigo10: String = "#071C2D"
+    static let Indigo20: String = "#0D3859"
+    static let Indigo30: String = "#135486"
+    static let Indigo40: String = "#1A70B2"
+    static let Indigo50: String = "#1C79C0"
+    static let Indigo60: String = "#4DA3E5"
+    static let Indigo70: String = "#79BAEC"
+    static let Indigo80: String = "#A6D1F2"
+    static let Indigo90: String = "#D2E8F8"
+    static let Indigo95: String = "#E9F4FC"
+    static let Indigo99: String = "#FBFDFE"
+    
+    //Skyblue
+    static let SkyBlue10: String = "#000000"
+    static let SkyBlue20: String = "#005366"
+    static let SkyBlue30: String = "#007D99"
+    static let SkyBlue40: String = "#00A7CC"
+    static let SkyBlue50: String = "#0DD3FF"
+    static let SkyBlue60: String = "#33DAFF"
+    static let SkyBlue70: String = "#66E3FF"
+    static let SkyBlue80: String = "#99ECFF"
+    static let SkyBlue90: String = "#CCF6FF"
+    static let SkyBlue95: String = "#E5FAFF"
+    static let SkyBlue99: String = "#FAFEFF"
+    
+    //Green
+    static let Green10: String = "#285214"
+    static let Green20: String = "#3C7B1E"
+    static let Green30: String = "#50A428"
+    static let Green40: String = "#64CD32"
+    static let Green50: String = "#89D963"
+    static let Green60: String = "#99DE78"
+    static let Green70: String = "#A8E38C"
+    static let Green80: String = "#BBE9A5"
+    static let Green90: String = "#C7EDB5"
+    static let Green95: String = "#E0F5D6"
+    static let Green99: String = "#EFFAEA"
+    
+    //LightGreen
+    static let LightGreen10: String = "#013223"
+    static let LightGreen20: String = "#026447"
+    static let LightGreen30: String = "#03966A"
+    static let LightGreen40: String = "#04C88E"
+    static let LightGreen50: String = "#05EEA9"
+    static let LightGreen60: String = "#37FBC1"
+    static let LightGreen70: String = "#69FCD0"
+    static let LightGreen80: String = "#9BFDE0"
+    static let LightGreen90: String = "#CDFEEF"
+    static let LightGreen95: String = "#E6FEF7"
+    static let LightGreen99: String = "#FAFFFD"
+    
+    //Yellow
+    static let Yellow10: String = "#332B00"
+    static let Yellow20: String = "#665600"
+    static let Yellow30: String = "#998000"
+    static let Yellow40: String = "#CCAB00"
+    static let Yellow50: String = "#FFD600"
+    static let Yellow60: String = "#FFDE33"
+    static let Yellow70: String = "#FFE666"
+    static let Yellow80: String = "#FFEF99"
+    static let Yellow90: String = "#FFF7CC"
+    static let Yellow95: String = "#FFFBE5"
+    static let Yellow99: String = "#FFFEFA"
+    
+    //Red
+    static let Red10: String = "#2E0606"
+    static let Red20: String = "#5B0B0B"
+    static let Red30: String = "#990D00"
+    static let Red40: String = "#CC1100"
+    static let Red50: String = "#FF1600"
+    static let Red60: String = "#FF4433"
+    static let Red70: String = "#FF7366"
+    static let Red80: String = "#FFA199"
+    static let Red90: String = "#FFD0CC"
+    static let Red95: String = "#FFE7E5"
+    static let Red99: String = "#FFFAFA"
+}
