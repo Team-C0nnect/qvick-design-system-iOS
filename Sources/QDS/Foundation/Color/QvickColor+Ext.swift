@@ -10,7 +10,7 @@ extension QvickColor {
             
     }
         
-    public protocol CanSementic: ColorContain {
+    public protocol CanSemantic: ColorContain {
         var pallete: CanPallete { get }
     }
 }
@@ -34,7 +34,7 @@ extension QvickColor.CanPallete {
     }
 }
 
-extension QvickColor.CanSementic {
+extension QvickColor.CanSemantic {
     public var color: Color {
         get {
             self.pallete.color
