@@ -4,6 +4,7 @@ public enum QvickImage: String {
     case logo
     case logoWithText
     case smallLogo
+    case chevron
 }
 
 extension QvickImage {
