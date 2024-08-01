@@ -10,12 +10,14 @@ import SwiftUI
 public struct QvickTextField: View {
     @Binding var text: String
     let prompt: String
+    let icon: String
     @State var isTab: Bool = false
     let isSecure: Bool
     
-    public init(text: Binding<String>, prompt: String, isSecure: Bool) {
+    public init(text: Binding<String>, prompt: String, icon: String, isSecure: Bool) {
         self._text = text
         self.prompt = prompt
+        self.icon = icon
         self.isSecure = isSecure
     }
     
@@ -24,10 +26,25 @@ public struct QvickTextField: View {
             .frame(width: 340, height: 60)
             .foregroundStyle(.clear)
             .overlay {
-                RoundedRectangle(cornerRadius: 15).stroke(isTab ? Color.primaryNormal : .lineAlternative)
+                RoundedRectangle(cornerRadius: 15).stroke(isTab || !text.isEmpty ? Color.primaryNormal : .lineAlternative)
+                    .overlay {
+                        if isTab || !self.text.isEmpty {
+                            HStack {
+                                Text(prompt)
+                                    .foregroundStyle(.blue)
+                                    .font(.pretendard(.regular, size: 11))
+                                    .padding(.horizontal, 5)
+                                    .background(Color.white)
+                                    .offset(y: -30)
+                                
+                                Spacer()
+                            }
+                            .padding(.leading)
+                        }
+                    }
                 
                 HStack(spacing: 20) {
-                    Image(systemName: "person.fill")
+                    Image(systemName: icon)
                         .foregroundStyle(Color.lineAlternative)
                     
                     if isSecure {
@@ -40,24 +57,16 @@ public struct QvickTextField: View {
                             
                         }
                         .textInputAutocapitalization(.never)
-                        .overlay {
-                            if self.isTab {
-                                Text(prompt)
-                                    .foregroundStyle(.blue)
-                                    .font(.pretendard(.regular, size: 11))
-                                    .padding(.horizontal, 5)
-                                    .background(Color.white)
-                                    .offset(x: -120, y: -30)
-                            }
-                        }
                         .onTapGesture {
                             withAnimation(.bouncy) {
                                 self.isTab = true
                             }
                         }
                         .onSubmit {
-                            withAnimation(.bouncy) {
-                                self.isTab = false
+                            if self.text.isEmpty {
+                                withAnimation(.bouncy) {
+                                    self.isTab = false
+                                }
                             }
                         }
                     } else {
@@ -68,24 +77,16 @@ public struct QvickTextField: View {
                             
                         }
                         .textInputAutocapitalization(.never)
-                        .overlay {
-                            if self.isTab {
-                                Text(prompt)
-                                    .foregroundStyle(.blue)
-                                    .font(.pretendard(.regular, size: 11))
-                                    .padding(.horizontal, 5)
-                                    .background(Color.white)
-                                    .offset(x: -120, y: -30)
-                            }
-                        }
                         .onTapGesture {
                             withAnimation(.bouncy) {
                                 self.isTab = true
                             }
                         }
                         .onSubmit {
-                            withAnimation(.bouncy) {
-                                self.isTab = false
+                            if self.text.isEmpty {
+                                withAnimation(.bouncy) {
+                                    self.isTab = false
+                                }
                             }
                         }
                     }
@@ -96,5 +97,5 @@ public struct QvickTextField: View {
 }
 
 #Preview {
-    QvickTextField(text: .constant(""), prompt: "이메일을 입력해주세요", isSecure: false)
+    QvickTextField(text: .constant("ddd"), prompt: "비밀번호를 입력해주세요", icon: "person.fill", isSecure: false)
 }
