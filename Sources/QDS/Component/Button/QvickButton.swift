@@ -11,7 +11,7 @@ public struct QvickButton: View {
     let action: (() -> ())?
     let destination: (() -> AnyView)?
     let text: String
-    @State var disable: Bool
+    let disable: Bool
         
     public init(action: (() -> ())? = nil, destination: (() -> AnyView)? = nil, text: String, disable: Bool) {
         self.text = text
