@@ -10,11 +10,11 @@ import SwiftUI
 public struct ChevronButton: View {
     let action: () -> ()
     
-    init(action: @escaping () -> Void) {
+    public init(action: @escaping () -> Void) {
         self.action = action
     }
     
-    var body: some View {
+    public var body: some View {
         Button {
             action()
         } label: {
