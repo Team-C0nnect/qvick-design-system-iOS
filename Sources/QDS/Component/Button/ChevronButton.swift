@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChevronButton: View {
+public struct ChevronButton: View {
     let action: () -> ()
     
     init(action: @escaping () -> Void) {
