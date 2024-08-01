@@ -4,14 +4,11 @@ extension QvickFont.Pretendard: QvickFont.CanDefine {
     
     public static func register() {
         QvickFont.Pretendard.allCases.forEach {
-            guard let fontURL = Bundle.module.url(
-                    forResource: $0.name,
-                    withExtension: "ttf"
-                ),
-                      let fontDataProvider = CGDataProvider(url: fontURL as CFURL),
-                      let font = CGFont(fontDataProvider) else { return }
-                var error: Unmanaged<CFError>?
-                CTFontManagerRegisterGraphicsFont(font, &error)
+            guard let asset = NSDataAsset(name: $0.name, bundle: .module),
+                  let provider = CGDataProvider(data: asset.data as NSData),
+                  let font = CGFont(provider) else { return }
+            
+            CTFontManagerRegisterGraphicsFont(font, nil)
         }
     }
     
