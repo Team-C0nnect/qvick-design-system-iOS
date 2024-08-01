@@ -33,7 +33,7 @@ public struct QvickButton: View {
                 .foregroundStyle(disable ? Color.labelLightDisable : .primaryNormal)
                 .overlay {
                     Text(text)
-                        .font(.pretendard(.bold, size: 17))
+                        .font(.pretendard(.semibold, size: 17))
                         .foregroundStyle(.white)
                 }
         }

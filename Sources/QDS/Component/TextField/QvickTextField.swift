@@ -33,7 +33,9 @@ public struct QvickTextField: View {
                     if isSecure {
                         SecureField(
                             text: $text,
-                            prompt: Text(prompt).font(.pretendard(.regular, size: 14))
+                            prompt: 
+                                Text(prompt)
+                                .font(.label1Normal(.regular))
                         ) {
                             
                         }
@@ -61,7 +63,7 @@ public struct QvickTextField: View {
                     } else {
                         TextField(
                             text: $text,
-                            prompt: Text(prompt).font(.pretendard(.regular, size: 14))
+                            prompt: Text(prompt).font(.label1Normal(.regular))
                         ) {
                             
                         }
