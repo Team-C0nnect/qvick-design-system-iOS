@@ -1,20 +1,14 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by hyk on 7/28/24.
-//
-
 import SwiftUI
 
 public struct QvickTextField: View {
+    @FocusState private var isTab: Bool
+
     @Binding var text: String
     let prompt: String
     let icon: String
-    @State var isTab: Bool = false
     let isSecure: Bool
     
-    public init(text: Binding<String>, prompt: String, icon: String, isSecure: Bool) {
+    public init(text: Binding<String>, prompt: String, icon: String, isSecure: Bool = false) {
         self._text = text
         self.prompt = prompt
         self.icon = icon
@@ -26,7 +20,8 @@ public struct QvickTextField: View {
             .frame(width: 340, height: 60)
             .foregroundStyle(.clear)
             .overlay {
-                RoundedRectangle(cornerRadius: 15).stroke(isTab || !text.isEmpty ? Color.primaryNormal : .lineAlternative)
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(isTab || !text.isEmpty ? Color.primaryNormal : .lineAlternative)
                     .overlay {
                         if isTab || !self.text.isEmpty {
                             HStack {
@@ -47,49 +42,31 @@ public struct QvickTextField: View {
                     Image(systemName: icon)
                         .foregroundStyle(Color.lineAlternative)
                     
-                    if isSecure {
-                        SecureField(
-                            text: $text,
-                            prompt: 
-                                Text(prompt)
-                                .font(.label1Normal(.regular))
-                        ) {
+                    Group {
+                        if isSecure {
+                            SecureField(
+                                "qvickSecure",
+                                text: $text,
+                                prompt:
+                                    Text(prompt)
+                                    .font(.label1Normal(.regular))
+                            )
                             
-                        }
-                        .textInputAutocapitalization(.never)
-                        .onTapGesture {
-                            withAnimation(.bouncy) {
-                                self.isTab = true
-                            }
-                        }
-                        .onSubmit {
-                            if self.text.isEmpty {
-                                withAnimation(.bouncy) {
-                                    self.isTab = false
-                                }
-                            }
-                        }
-                    } else {
-                        TextField(
-                            text: $text,
-                            prompt: Text(prompt).font(.label1Normal(.regular))
-                        ) {
+                        } else {
+                            TextField(
+                                "qvickText",
+                                text: $text,
+                                prompt: Text(prompt).font(.label1Normal(.regular))
+                            )
                             
-                        }
-                        .textInputAutocapitalization(.never)
-                        .onTapGesture {
-                            withAnimation(.bouncy) {
-                                self.isTab = true
-                            }
-                        }
-                        .onSubmit {
-                            if self.text.isEmpty {
-                                withAnimation(.bouncy) {
-                                    self.isTab = false
-                                }
-                            }
                         }
                     }
+                    .focused($isTab)
+                    
+#if os(iOS)
+                    .textInputAutocapitalization(.never)
+#endif
+                    
                 }
                 .padding(.horizontal, 20)
             }
@@ -97,5 +74,11 @@ public struct QvickTextField: View {
 }
 
 #Preview {
-    QvickTextField(text: .constant("ddd"), prompt: "비밀번호를 입력해주세요", icon: "person.fill", isSecure: false)
+    VStack {
+        QvickTextField(text: .constant(""), prompt: "비밀번호를 입력해주세요", icon: "person.fill")
+        
+        QvickTextField(text: .constant(""), prompt: "비밀번호를 입력해주세요", icon: "person.fill")
+        
+        QvickTextField(text: .constant(""), prompt: "비밀번호를 입력해주세요", icon: "person.fill")
+    }
 }
