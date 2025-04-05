@@ -21,7 +21,7 @@ public struct ChevronButton: View {
             Image(qvick: .chevron)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 18)
+                .frame(width: 25, height: 25)
         }
     }
 }
