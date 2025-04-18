@@ -17,7 +17,8 @@ public struct QvickTextField: View {
     
     public var body: some View {
         RoundedRectangle(cornerRadius: 15)
-            .frame(width: 340, height: 60)
+            .frame(maxWidth: .infinity)
+            .frame(height: 60)
             .foregroundStyle(.clear)
             .overlay {
                 RoundedRectangle(cornerRadius: 15)
@@ -70,6 +71,7 @@ public struct QvickTextField: View {
                 }
                 .padding(.horizontal, 20)
             }
+            .padding(.horizontal)
     }
 }
 

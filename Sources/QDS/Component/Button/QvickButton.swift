@@ -29,13 +29,15 @@ public struct QvickButton: View {
             }
         } label: {
             RoundedRectangle(cornerRadius: 14)
-                .frame(width: 345, height: 50)
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
                 .foregroundStyle(disable ? Color.labelLightDisable : .primaryNormal)
                 .overlay {
                     Text(text)
                         .font(.pretendard(.semibold, size: 17))
                         .foregroundStyle(.white)
                 }
+                .padding(.horizontal)
         }
         .disabled(disable)
     }
